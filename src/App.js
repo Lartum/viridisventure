@@ -1,25 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css';
+import UploadForm from './components/UploadForm'
+import { Head, Home } from './components/Layout'
+import Contact from './components/Contact'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <Router> 
+           <Head />
+           <Switch> 
+              <Route path='/' exact component = { Home }/>
+           </Switch>
+           <Switch> 
+              <Route path='/upload' exact component = { UploadForm }/>
+           </Switch>
+           <Switch> 
+              <Route path='/contact' component = { Contact }/>
+           </Switch>
+       </Router>
+       
   );
 }
 
