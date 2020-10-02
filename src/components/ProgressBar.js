@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { LinearProgress  } from '@material-ui/core'
+import { Progress } from 'antd'
 import useStorage from '../hooks/useStorage'
 
 const ProgressBar = ({ 
@@ -14,7 +14,7 @@ const ProgressBar = ({
     price, 
     setPrice, 
     category, 
-    setCategory }) => { 
+     }) => { 
 
     const { url, progress } = useStorage({ file, plantName, description, price, category })
     
@@ -26,15 +26,16 @@ const ProgressBar = ({
             setUpload(false)
             setStatus(true)
             setPrice(null)
-            setCategory(null)
+            // setCategory(null)
         }
-    } , [ url, setFile, setPlantName, setDescription, setUpload, setStatus, setPrice, setCategory ])
+    } , [ url, setFile, setPlantName, setDescription, setUpload, setStatus, setPrice ])
 
     return(
         <React.Fragment>
-            <LinearProgress 
-                variant="determinate" 
-                value={progress} />
+            <Progress
+                steps = { 10 }
+                status = 'active'
+                percent = {progress} />
         </React.Fragment>
     )
 

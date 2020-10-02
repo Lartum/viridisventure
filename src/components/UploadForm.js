@@ -14,7 +14,7 @@ const UploadForm = () => {
     const [ status, setStatus ] = useState(false)
     const [ upload, setUpload ] = useState(false)
     const [ category, setCategory ] = useState(null)
-    const [ preview, setPreview ] = useState(null)
+    // const [ preview, setPreview ] = useState(null)
     
     const { Option } = Select
 

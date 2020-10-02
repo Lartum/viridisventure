@@ -1,20 +1,19 @@
 import React from 'react'
-import { Row, Col } from 'antd'
+import { Space } from 'antd'
 import useFirestore from '../hooks/useFirestore'
 import { CatalogueCard } from './CatalogueCard'
 
 const CatalogueGrid = ( props ) =>{
+  
     const category = props.category
-   
+
     const { docs } = useFirestore(category)
 
     return(
         <div>
-        <React.Fragment>
-        <Row>
           { docs && docs.map( doc =>{
-            return(
-              <Col span={8} style={{padding:'5%'}}>
+            return(     
+              <Space direction='horizontal'>
               <CatalogueCard
                 key = {doc.id}
                 props = {{
@@ -24,11 +23,9 @@ const CatalogueGrid = ( props ) =>{
                   price: doc.price
                 }}
               />
-             </Col>
+              </Space>     
             )}
           )}  
-          </Row>
-          </React.Fragment>
         </div>
        
     )
