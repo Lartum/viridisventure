@@ -2,10 +2,19 @@
 
 .catalogueImage{
     text-align: center;
-    padding:10%;
-    margin: 10% 18% auto;
+    padding:5%;
+    margin: 10% 20% auto;
    }
 
 body{
     background: #F5F5F5;
 }
+
+@media only screen and (max-width: 600px) {
+    .catalogueImage{
+        text-align: center;
+        padding:10%;
+        margin: 10% 10% auto 30%;
+       }
+    
+  }

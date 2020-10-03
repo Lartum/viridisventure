@@ -1,9 +1,7 @@
 import React , { useState } from 'react'
-import { Button, Card, Input, Select, Alert } from 'antd'
+import { Button, Card, Input, Select, Alert, Image } from 'antd'
 import { types, categories } from '../constants/formdata'
 import ProgressBar from './ProgressBar'
-
-
 
 const UploadForm = () => { 
     const [ file, setFile ] = useState(null)
@@ -14,7 +12,7 @@ const UploadForm = () => {
     const [ status, setStatus ] = useState(false)
     const [ upload, setUpload ] = useState(false)
     const [ category, setCategory ] = useState(null)
-    // const [ preview, setPreview ] = useState(null)
+    const [ preview, setPreview ] = useState(null)
     
     const { Option } = Select
 
@@ -25,6 +23,7 @@ const UploadForm = () => {
         if (selectedFile && types.includes(selectedFile.type)) {
             setError(null)
             setFile(selectedFile)
+            setPreview(URL.createObjectURL(selectedFile))
             }
         else {
             setFile(null)
@@ -46,6 +45,8 @@ const UploadForm = () => {
     const handleCategory = (value) => {
         setCategory(value)
     }
+
+
     return(
         <Card title='Add a new Post' style={{ width: 300, margin:'32px auto', textAlign:'center'}}>
             <Select defaultValue='Select the item to upload' onChange={ handleCategory }>
@@ -55,6 +56,7 @@ const UploadForm = () => {
             </Select>
             { category && 
                     <>
+                    <Image src={ preview } />
                     <Input required type='file' onChange= { handleChange }/>
                     { error && <Alert message={ error } type="error" />}
                     { file && <Alert message={ file.name } type="info" />}
@@ -73,7 +75,7 @@ const UploadForm = () => {
                                         setStatus = { setStatus }
                                         />}
                     {status === true &&  <Alert message='SuccessFully Uploaded' type="success" />}                    
-                    <Input placeholder="Plant plantName" onChange={(e) => setPlantName(e.target.value)} />
+                    <Input placeholder="Name    " onChange={(e) => setPlantName(e.target.value)} />
                     <Input.TextArea maxLength={160} placeholder="Description max 160 characters" onChange={(e) => setDescription(e.target.value)} />
                     <Input type='number' placeholder='Price'  onChange={(e) => setPrice(e.target.value)}/>   
                     <Button type='primary' onClick={ handleSubmit }>Upload</Button>
@@ -81,32 +83,6 @@ const UploadForm = () => {
             }   
         </Card>
     )
-    // const SubForm = () =>{
-    //     return(
-            // <>
-            //     <Input required type='file' onChange= { handleChange }/>
-                // { error && <Alert type="error">{ error } }
-                // { file && <Alert type="success">{ file.plantName } }
-                // { upload === true && <ProgressBar 
-                //                         file = { file } 
-                //                         setFile = { setFile } 
-                //                         plantName = { plantName } 
-                //                         setPlantName = { setPlantName } 
-                //                         description = { description } 
-                //                         setDescription = { setDescription } 
-                //                         price = { price }
-                //                         setPrice = { setPrice } 
-                //                         category = { category }
-                //                         setCategory = { setCategory }
-                //                         setUpload = { setUpload }      
-                //                         setStatus = { setStatus }
-                                        
-                //                         />}
-            //     { status === true &&  <Alert type="success">SuccessFully Uploaded }                        
-            //     <TextField  required label="Plant plantName" onChange={(e) => setPlantName(e.target.value)} variant="standard"/>
-            //     <TextField  required multiline label="Description" onChange={(e) => setDescription(e.target.value)} variant="standard"/>
-            //     <TextField  required type='number' label="Price" onChange={(e) => setPrice(e.target.value)} variant="standard"/>
-            //     <Button type='submit' variant='contained' color='primary' onClick={ handleSubmit }>Submit</Button> 
 }
 
 
