@@ -18,7 +18,7 @@ export const CatalogueCard = ({props}) =>{
     hoverable
     className='catalogueImage'
     cover={ <img alt='plant' src = { imageLink } onLoad={()=> setLoading(false)}/>}
-    style={{ width: 300}}
+    // style={{ width: 300}}
     ><Meta 
         title={ plantName } description={[
         <div> 
