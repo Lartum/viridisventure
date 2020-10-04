@@ -4,9 +4,8 @@ import useFirestore from '../hooks/useFirestore'
 import { CatalogueCard } from './CatalogueCard'
 
 const CatalogueGrid = ( props ) =>{
-  
-    const category = props.category
-
+    
+    let category = props.category
     const { docs } = useFirestore(category)
 
     return(

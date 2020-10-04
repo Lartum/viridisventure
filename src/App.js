@@ -5,6 +5,7 @@ import UploadForm from './components/UploadForm'
 import { Head } from './components/Layout'
 import Contact from './components/Contact'
 import Home from './components/Home'
+import Catalogue from './components/Catalogue'
 
 function App() {
   return (
@@ -12,6 +13,9 @@ function App() {
            <Head />
            <Switch> 
               <Route path='/' exact component = { Home }/>
+           </Switch>
+           <Switch> 
+              <Route path='/catalogue' exact component = { Catalogue }/>
            </Switch>
            <Switch> 
               <Route path='/upload' exact component = { UploadForm }/>

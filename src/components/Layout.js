@@ -3,50 +3,22 @@ import { Layout, Menu } from 'antd'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSeedling } from '@fortawesome/free-solid-svg-icons'
-import CatalogueGrid from './CatalogueGrid'
 import { slides } from '../constants/images'
 import { useTransition, animated, config, useSpring } from 'react-spring'
 import { welcomeText, toText, viridisText, ventureText } from '../constants/formdata'
+
+
 const { Header } = Layout
 
 export const Head = () =>{
-
-    
-   const [ subMenu, setSubMenu] = useState(null)
-   const [ showSubMenu, setShowSubMenu ] = useState(false)
-
-    const handleMenu = (e) =>{
-        let selectedMenu = e.key
-        if( selectedMenu === 'catalogue'){
-            setShowSubMenu(true)
-        }
-        else{
-            setShowSubMenu(false)
-            setSubMenu(null)
-        }
-    }
-
-    const handleSubMenu = (e) =>{
-        let selectedSubMenu = e.key
-        setSubMenu(selectedSubMenu)
-    }
-
     return(
         <>
-        <Header style={{ background:'white', textAlign: 'center'}}><h2><FontAwesomeIcon icon={ faSeedling } spin/> Viridis Venture</h2></Header>
-            <Menu theme="light" mode="horizontal" defaultSelectedKeys={['2']} style={{textAlign:'Center'}} onClick={handleMenu}> 
-              <Menu.Item key='home'><Link to='/'><h2 className='vvtextYellow'>Home</h2></Link></Menu.Item>
-              <Menu.Item key='catalogue'><Link to='/catalogue'><h2 className='vvtextYellow'>Catalogue</h2></Link></Menu.Item>
-              <Menu.Item key='contact'><Link to='/contact'><h2 className='vvtextYellow'>Contact</h2></Link></Menu.Item>
-            </Menu>
-            {showSubMenu === true &&  <Menu theme="light" mode="horizontal" defaultSelectedKeys={['2']} style={{textAlign:'Center'}} onClick = { handleSubMenu } >   
-              <Menu.Item key='Plant' className='vvtextYellow'><h3>Plants</h3></Menu.Item>
-              <Menu.Item key='Basket' className='vvtextYellow'><h3>Basket</h3></Menu.Item>
-            </Menu> 
-            }    
-            { subMenu === 'Plant' && <CatalogueGrid category = { subMenu }/>}
-            { subMenu === 'Basket' && <CatalogueGrid category = { subMenu }/>}
-            
+        <Header style={{ background:'white', textAlign: 'center'}}><h2 className='vvtextYellow'><FontAwesomeIcon icon={ faSeedling } spin/> Viridis Venture</h2></Header>
+            <Menu theme="light" mode="horizontal" defaultSelectedKeys={['2']} style={{textAlign:'Center'}}> 
+              <Menu.Item><Link to='/'><h2 className='vvtextYellow'>Home</h2></Link></Menu.Item>
+              <Menu.Item><Link to='/catalogue'><h2 className='vvtextYellow'>Catalogue</h2></Link></Menu.Item>
+              <Menu.Item><Link to='/contact'><h2 className='vvtextYellow'>Contact</h2></Link></Menu.Item>
+            </Menu>    
         </>
     )
 }

@@ -7,8 +7,7 @@ const Home = () => {
         <>
         <HomeScreenBackground />
         </>
-    )
-    
+    ) 
 }
 
 export default Home
