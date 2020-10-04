@@ -11,3 +11,8 @@ export const categories = [
     }
 
 ]
+
+export const viridisText = ['V','i','r','i','d','i','s']
+export const welcomeText = ['W','e','l','c','o','m','e']
+export const toText = ['T','o']
+export const ventureText = ['V','e','n','t','u','r','e']

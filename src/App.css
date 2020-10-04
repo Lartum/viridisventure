@@ -1,5 +1,7 @@
 @import '~antd/dist/antd.css';
 
+
+
 .catalogueImage{
     text-align: center;
     padding:5%;
@@ -11,11 +13,44 @@ body{
     background: #F5F5F5;
 }
 
+.vvtext{
+    font-family: Pacifico;
+    font-size: 50px;
+    color: #FBD50E;
+    margin: 3% auto;
+}
+
+.vvtextYellow{
+    font-family: Pacifico;
+    color: #FBD50E;
+    /* font-size: 60px; */
+}
+
+
+
+.bg {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 50;
+    width: 80vw;
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    will-change: opacity;
+  }
+
 @media only screen and (max-width: 600px) {
     .catalogueImage{
         text-align: center;
         padding:5%;
         margin: 5% 10% auto;
        }
-    
+    .vvtext{
+        font-family: Pacifico;
+        font-size: 40px;
+    }
   }
